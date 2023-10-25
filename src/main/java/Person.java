@@ -1,7 +1,6 @@
-public class Person {
+public class Person extends Animal {
     private String firstName;
     private String lastName;
-    private int age;
     private int i;
     private static int peopleCount = 0;
     public Person() {
@@ -13,15 +12,15 @@ public class Person {
         peopleCount++;
     }
     public Person(String firstName, String lastName, int age) {
+        super(age);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
         peopleCount++;
     }
     public Person(String firstName, String lastName, byte age, int i) {
+        super(age);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
         this.i = i;
         peopleCount++;
     }
@@ -32,11 +31,11 @@ public class Person {
         if(this.firstName == null && this.lastName == null){
             return "I dont have a name";
         }
-        else if((this.firstName != null && this.lastName != null) && (this.age == 0 && this.i == 0)){
+        else if((this.firstName != null && this.lastName != null) && (this.getAge() == 0 && this.i == 0)){
            return "My name is " + firstName + " " + lastName;
         }
-        else if ((this.firstName != null && this.lastName != null) && (this.age != 0)){
-           return  "My name is " + firstName + " " + lastName + " and I am " + age + " years old";
+        else if ((this.firstName != null && this.lastName != null) && (this.getAge() != 0)){
+           return  "My name is " + firstName + " " + lastName + " and I am " + this.getAge() + " years old";
         }
         else {
             return firstName + " " + lastName +" " + i;
@@ -48,7 +47,7 @@ public class Person {
         if(this.firstName == null && this.lastName == null){
             return "N/A";
         }
-        if((firstName != null && lastName != null) && (this.age == 0 && this.i == 0)){
+        if((firstName != null && lastName != null) && (this.getAge() == 0 && this.i == 0)){
             return firstName + " " + lastName;
         }
        if((firstName != null && lastName != null) &&  (this.i != 0)){
